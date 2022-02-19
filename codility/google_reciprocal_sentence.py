@@ -32,3 +32,23 @@ def solution(x):
             dec.append(c)
     return ''.join(dec)
 
+
+#FOR UPPERCASE and LOWERCASE
+
+def solution(data):
+    alphabet = [i for i in range(97, 123)]
+    rev_alphabet = [i for i in range(122, 96, -1)]
+    cap_alphabet = [i for i in range(65, 91)]
+    re_cap_alphabet = [i for i in range(90, 64, -1)]
+    alpha_dict = dict(zip(alphabet, rev_alphabet))  
+    cap_alpha_dict = dict(zip(cap_alphabet, re_cap_alphabet))  
+    # print(cap_alpha_dict, ord("Z"))
+    result = ""
+    for i in data:
+        if i.isupper():
+            result += chr(cap_alpha_dict[ord(i)])
+        elif i.islower():
+            result += chr(alpha_dict[ord(i)])
+        else:
+            result += i
+    return result
